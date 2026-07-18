@@ -10,6 +10,7 @@ import CategoriesPage from './pages/Categories.jsx';
 import UnitsPage from './pages/Units.jsx';
 import ItemsPage from './pages/Items.jsx';
 import StockPage from './pages/Stock.jsx';
+import AccountPage from './pages/Account.jsx';
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -33,6 +34,7 @@ export default function App() {
       <Route path="/units" element={<ProtectedRoute><UnitsPage /></ProtectedRoute>} />
       <Route path="/items" element={<ProtectedRoute><ItemsPage /></ProtectedRoute>} />
       <Route path="/stock" element={<ProtectedRoute><StockPage /></ProtectedRoute>} />
+      <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

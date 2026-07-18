@@ -34,7 +34,11 @@ export default function UsersPage() {
     e.preventDefault();
     setError('');
     try {
-      await apiClient.post('/users', form);
+      await apiClient.post('/users', {
+        ...form,
+        branchId: form.branchId || null,
+        email: form.email || ''
+      });
       setShowModal(false);
       setForm({ username: '', fullName: '', email: '', roleId: '', branchId: '', password: '' });
       loadUsers();

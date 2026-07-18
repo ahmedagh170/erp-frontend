@@ -1,4 +1,5 @@
 import { LogOut, Bell } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 
@@ -16,10 +17,10 @@ export default function Layout({ children, title }) {
               <Bell size={19} className="text-ink/60" />
             </button>
             <div className="h-8 w-px bg-black/10" />
-            <div className="text-left">
+            <Link to="/account" className="text-left hover:opacity-70 transition-opacity">
               <div className="text-sm font-medium text-ink">{user?.full_name}</div>
               <div className="text-xs text-ink/50">{user?.role_name}</div>
-            </div>
+            </Link>
             <button
               onClick={logout}
               className="p-2 rounded-full hover:bg-red-50 hover:text-red-500 text-ink/50 transition-colors"
